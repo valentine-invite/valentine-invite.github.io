@@ -1,0 +1,55 @@
+body {
+    background-color: #ffd1d9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    
+}
+h1 {
+    color: #cf6578;
+    /* lowk like this color: #e37f95 */
+    font-family: American Typewriter, serif;
+    font-weight: 550;
+    font-size: 50px;
+    position: absolute;
+    text-align: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.image-space {
+    height: 200px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.valentine-img {
+    max-height: 100%;
+    max-width: 100%;
+}
+.button-container {
+    display: flex;
+    gap: 20px;
+}
+button {
+    font-size: 35px;
+    font-family: American Typewriter, serif;
+    font-weight: 500;
+    color: #e37f95;
+    background-color: white;
+    border: 2px solid #e37f95;
+    border-radius: 12px;
+    padding: 6px 11px;
+}
+button:hover {
+    background-color: #e6aab4;
+    color: #bf586a; 
+    border: 3px solid #bf586a;
+}
