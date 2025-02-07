@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const audio1 = new Audio("vine_boom.mp3"); 
     const audio2 = new Audio("wow_better.mp3");
     const audio3 = new Audio("button_sound.mp3"); 
+    audio3.volume = 0.2;
 
     audio3.preload = "auto";
 
