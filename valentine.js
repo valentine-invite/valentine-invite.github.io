@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const flashImage = document.createElement("img");
     const finalImage = document.createElement("img");
 
-    function styleImage(img, size = "70%") {
+    function styleImage(img, size = "90%") {
         img.style.position = "absolute";
         img.style.top = "50%";
         img.style.left = "50%";
@@ -62,6 +62,11 @@ document.addEventListener("DOMContentLoaded", function () {
         flashImage.src = randomImage;
         flashImage.style.display = "block";
 
+        if (randomImage === "gay.png") {
+            flashImage.style.width = "100vw";  // Full viewport width
+            flashImage.style.height = "100vh"; // Full viewport height
+        }
+
         setTimeout(() => {
             flashImage.style.display = "none";
 
@@ -79,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     finalImage.style.display = "none";
                 }, 20000);
-            }, 2000);
+            }, 1000);
         }, 450);
     });
 
@@ -127,5 +132,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(() => {
         clickMessage.classList.add("hidden");
-    }, 2000); 
+    }, 1000); 
 });
