@@ -83,3 +83,11 @@ document.addEventListener("DOMContentLoaded", function () {
         buttonNo.style.top = `${randomY}px`;
     });
 });
+
+document.getElementById("yes").addEventListener("click", function() {
+    document.getElementById("gif").src = "happy.gif"; // Change to a happy GIF
+});
+
+document.getElementById("no").addEventListener("click", function() {
+    document.getElementById("gif").src = "sad.gif"; // Change to a sad GIF
+});
