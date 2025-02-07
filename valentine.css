@@ -4,8 +4,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    
+    margin: 0;   
 }
 h1 {
     color: #cf6578;
@@ -54,6 +53,29 @@ button:hover {
     border: 3px solid #bf586a;
 }
 #gif {
-    width: 200px;  /* Ensures it never overflows */
+    width: 400px;  
     height: auto;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+#click-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffd1d9;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: American Typewriter, serif;
+    font-size: 1.2rem;
+    text-align: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease-in-out;
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none;
 }

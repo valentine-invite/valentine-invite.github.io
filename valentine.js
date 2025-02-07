@@ -8,7 +8,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const audio1 = new Audio("vine_boom.mp3"); 
     const audio2 = new Audio("wow_better.mp3");
-    const audio3 = new Audio("button_sound.mp3"); // TODO get this to work
+    const audio3 = new Audio("button_sound.mp3"); 
+
+    audio3.preload = "auto";
+
+    // ofc browser is blocking one of the audios; this unblocks it
+    function unlockAudio() {
+        const context = new (window.AudioContext || window.webkitAudioContext)();
+        const unlock = context.createBufferSource();
+        unlock.connect(context.destination);
+        if (context.state === "suspended") {
+            context.resume();
+        }
+        document.removeEventListener("click", unlockAudio); // Remove listener after first interaction
+    }
+
+    document.addEventListener("click", unlockAudio, { once: true });
 
     const images = [
         "sus.jpg",
@@ -37,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(flashImage);
     document.body.appendChild(finalImage);
 
+    // all the stuff when "yes" is clicked
     buttonYes.addEventListener("click", function () {
         audio1.currentTime = 0;
         audio1.play(); 
@@ -62,11 +78,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     finalImage.style.display = "none";
                 }, 20000);
-            }, 500);
+            }, 2000);
         }, 450);
     });
 
+    // getting audio3 to work + making "no" run
     buttonNo.addEventListener("mouseenter", function () {
+
+        audio3.currentTime = 0;
+        audio3.play().catch(error => console.log("Audio playback error:", error));
 
         const maxX = window.innerWidth - buttonNo.clientWidth;
         const maxY = window.innerHeight - buttonNo.clientHeight;
@@ -84,7 +104,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.getElementById("yes").addEventListener("click", function() {
-    document.getElementById("gif").src = "happy.gif"; // Change to a happy GIF
+//bouncy h1 + keep the spaces
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("text");
+    const text = header.innerText;
+    header.innerHTML = ""; 
+
+    text.split("").forEach((char, index) => {
+        let span = document.createElement("span");
+        span.innerHTML = char === " " ? "&nbsp;" : char; 
+        span.style.display = "inline-block";
+        span.style.animation = `bounce 2s ease-in-out infinite`;
+        span.style.animationDelay = `${index * 0.1}s`; 
+        header.appendChild(span);
+    });
 });
 
+// message in the beginning
+document.addEventListener("DOMContentLoaded", function () {
+    const clickMessage = document.getElementById("click-message");
+
+    setTimeout(() => {
+        clickMessage.classList.add("hidden");
+    }, 2000); 
+});
