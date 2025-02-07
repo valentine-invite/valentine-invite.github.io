@@ -53,3 +53,7 @@ button:hover {
     color: #bf586a; 
     border: 3px solid #bf586a;
 }
+#gif {
+    width: 200px;  /* Ensures it never overflows */
+    height: auto;
+}
